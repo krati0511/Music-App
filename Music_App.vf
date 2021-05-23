@@ -1,0 +1,695 @@
+{
+  "project": {
+    "_id": "60352292b5e2b5001ce8f59f",
+    "name": "Music App",
+    "teamID": "PGE9QlKEY3",
+    "devVersion": "60352292b9b4bb0007342989",
+    "platform": "google",
+    "platformData": {
+      "invocationName": "template project google"
+    },
+    "members": [],
+    "linkType": "STRAIGHT",
+    "image": "",
+    "creatorID": 56821
+  },
+  "version": {
+    "_id": "60352292b9b4bb0007342989",
+    "name": "Initial Version",
+    "projectID": "60352292b5e2b5001ce8f59f",
+    "variables": [
+      "top_10_artists",
+      "artist1",
+      "artist2",
+      "artist3",
+      "artist4",
+      "artist5",
+      "artist6",
+      "artist7",
+      "artist8",
+      "artist9",
+      "artist10",
+      "artist_name",
+      "artist_id",
+      "track_list",
+      "track_names",
+      "track_name",
+      "previewURL"
+    ],
+    "platformData": {
+      "slots": [],
+      "intents": [],
+      "settings": {
+        "restart": true,
+        "repeat": 100
+      },
+      "publishing": {
+        "voice": "",
+        "locales": [
+          "en-US",
+          "en-AU",
+          "en-CA",
+          "en-GB",
+          "en-IN",
+          "en-BE",
+          "en-SG"
+        ],
+        "displayName": "Music App",
+        "developerName": "",
+        "pronunciation": "MusicApp",
+        "invocationName": "",
+        "smallLogoImage": "",
+        "developerEmail": "",
+        "fullDescription": "",
+        "largeBannerImage": "",
+        "privacyPolicyUrl": "",
+        "shortDescription": "",
+        "termsOfServiceUrl": "",
+        "sampleInvocations": [
+          "open MusicApp",
+          "start MusicApp",
+          "launch MusicApp"
+        ]
+      },
+      "status": {
+        "stage": "DEV"
+      },
+      "platform": "google"
+    },
+    "rootDiagramID": "60352292b9b4bb000734298a",
+    "creatorID": 56821,
+    "prototype": {
+      "data": {
+        "name": "Music App",
+        "locales": [
+          "en-US",
+          "en-US",
+          "en-US",
+          "en-US",
+          "en-US",
+          "en-US",
+          "en-US"
+        ]
+      },
+      "model": {
+        "intents": [],
+        "slots": []
+      },
+      "context": {
+        "stack": [
+          {
+            "storage": {},
+            "variables": {},
+            "programID": "60352292b9b4bb000734298a"
+          }
+        ]
+      },
+      "settings": {}
+    }
+  },
+  "diagrams": {
+    "60352292b9b4bb000734298a": {
+      "_id": "60352292b9b4bb000734298a",
+      "offsetX": 210.8,
+      "offsetY": 198.4000000000001,
+      "zoom": 80,
+      "nodes": {
+        "5f9f562f11b31520c2a2a6eb": {
+          "nodeID": "5f9f562f11b31520c2a2a6eb",
+          "type": "start",
+          "coords": [
+            -125,
+            -112.5
+          ],
+          "data": {
+            "name": "Start",
+            "color": "standard",
+            "ports": [
+              {
+                "type": "",
+                "target": "6035262e59f6e9558509c991",
+                "id": "603522e859f6e9558509c98e"
+              }
+            ],
+            "steps": []
+          }
+        },
+        "6035262e59f6e9558509c991": {
+          "nodeID": "6035262e59f6e9558509c991",
+          "type": "speak",
+          "data": {
+            "randomize": false,
+            "dialogs": [
+              {
+                "voice": "default",
+                "content": "Hey there, here is the list of top 10 artists of the week."
+              }
+            ],
+            "ports": [
+              {
+                "type": "",
+                "target": "6035268159f6e9558509c9a0",
+                "id": "6035262e59f6e9558509c993"
+              }
+            ]
+          }
+        },
+        "6035262e59f6e9558509c994": {
+          "nodeID": "6035262e59f6e9558509c994",
+          "type": "block",
+          "coords": [
+            306.49999999999994,
+            -42.75000000000006
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "6035262e59f6e9558509c991"
+            ]
+          }
+        },
+        "6035268159f6e9558509c99c": {
+          "nodeID": "6035268159f6e9558509c99c",
+          "type": "api",
+          "data": {
+            "url": "https://api.napster.com/v2.2/artists/top",
+            "body": [
+              {
+                "key": "",
+                "val": ""
+              }
+            ],
+            "params": [
+              {
+                "key": "apikey",
+                "val": "MGIwOTEzYzAtMmE2OS00OThkLWEwOWUtYTViMzc3ZjJlZTQz"
+              },
+              {
+                "key": "limit",
+                "val": "10"
+              }
+            ],
+            "method": "GET",
+            "headers": [
+              {
+                "key": "",
+                "val": ""
+              }
+            ],
+            "content": "",
+            "mappings": [
+              {
+                "path": "response.artists",
+                "var": "top_10_artists"
+              },
+              {
+                "path": "response.artists.0.name",
+                "var": "artist1"
+              },
+              {
+                "path": "response.artists.1.name",
+                "var": "artist2"
+              },
+              {
+                "path": "response.artists.2.name",
+                "var": "artist3"
+              },
+              {
+                "path": "response.artists.3.name",
+                "var": "artist4"
+              },
+              {
+                "path": "response.artists.4.name",
+                "var": "artist5"
+              },
+              {
+                "path": "response.artists.5.name",
+                "var": "artist6"
+              },
+              {
+                "path": "response.artists.6.name",
+                "var": "artist7"
+              },
+              {
+                "path": "response.artists.7.name",
+                "var": "artist8"
+              },
+              {
+                "path": "response.artists.8.name",
+                "var": "artist9"
+              },
+              {
+                "path": "response.artists.9.name",
+                "var": "artist10"
+              }
+            ],
+            "bodyType": "formData",
+            "selectedAction": "Make a GET Request",
+            "selectedIntegration": "Custom API",
+            "ports": [
+              {
+                "type": "",
+                "target": "60362143e5c7d38393b60616",
+                "id": "6035268159f6e9558509c99e"
+              },
+              {
+                "type": "fail",
+                "target": null,
+                "id": "6035268159f6e9558509c99f"
+              }
+            ]
+          }
+        },
+        "6035268159f6e9558509c9a0": {
+          "nodeID": "6035268159f6e9558509c9a0",
+          "type": "block",
+          "coords": [
+            735.25,
+            -115.25000000000006
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "6035268159f6e9558509c99c"
+            ]
+          }
+        },
+        "60362143e5c7d38393b60613": {
+          "nodeID": "60362143e5c7d38393b60613",
+          "type": "speak",
+          "data": {
+            "randomize": false,
+            "dialogs": [
+              {
+                "voice": "default",
+                "content": "{{[artist1].artist1}} , {{[artist2].artist2}} , {{[artist3].artist3}} , {{[artist4].artist4}} ,{{[artist5].artist5}} ,{{[artist6].artist6}} ,{{[artist7].artist7}} ,{{[artist8].artist8}}, {{[artist9].artist9}} and {{[artist10].artist10}}. <break time=\"2s\" />"
+              }
+            ],
+            "ports": [
+              {
+                "type": "",
+                "target": "603633a9e5c7d38393b606aa",
+                "id": "60362143e5c7d38393b60615"
+              }
+            ]
+          }
+        },
+        "60362143e5c7d38393b60616": {
+          "nodeID": "60362143e5c7d38393b60616",
+          "type": "block",
+          "coords": [
+            1095.9230769230778,
+            -285.9230769230771
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "60362143e5c7d38393b60613"
+            ]
+          }
+        },
+        "603622dce5c7d38393b6061e": {
+          "nodeID": "603622dce5c7d38393b6061e",
+          "type": "capture",
+          "data": {
+            "slot": "Custom",
+            "variable": "artist_name",
+            "reprompt": null,
+            "slotInputs": [],
+            "chips": null,
+            "ports": [
+              {
+                "type": "",
+                "target": "6036296fe5c7d38393b60654",
+                "id": "603622dce5c7d38393b60620"
+              }
+            ]
+          }
+        },
+        "603622dce5c7d38393b60621": {
+          "nodeID": "603622dce5c7d38393b60621",
+          "type": "block",
+          "coords": [
+            1575.5,
+            -286.7500000000001
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "603622dce5c7d38393b6061e"
+            ]
+          }
+        },
+        "6036277ce5c7d38393b60644": {
+          "nodeID": "6036277ce5c7d38393b60644",
+          "type": "api",
+          "data": {
+            "url": "http://api.napster.com/v2.2/artists/{{[artist_id].artist_id}}/tracks/top",
+            "body": [
+              {
+                "key": "",
+                "val": ""
+              }
+            ],
+            "params": [
+              {
+                "key": "apikey",
+                "val": "MGIwOTEzYzAtMmE2OS00OThkLWEwOWUtYTViMzc3ZjJlZTQz"
+              }
+            ],
+            "method": "GET",
+            "headers": [
+              {
+                "key": "",
+                "val": ""
+              }
+            ],
+            "content": "",
+            "mappings": [
+              {
+                "path": "response.tracks",
+                "var": "track_list"
+              },
+              {
+                "path": "",
+                "var": null
+              }
+            ],
+            "bodyType": "formData",
+            "selectedAction": "Make a GET Request",
+            "selectedIntegration": "Custom API",
+            "ports": [
+              {
+                "type": "",
+                "target": "60362b7ce5c7d38393b60662",
+                "id": "6036277ce5c7d38393b60646"
+              },
+              {
+                "type": "fail",
+                "target": null,
+                "id": "6036277ce5c7d38393b60647"
+              }
+            ]
+          }
+        },
+        "6036277ce5c7d38393b60648": {
+          "nodeID": "6036277ce5c7d38393b60648",
+          "type": "block",
+          "coords": [
+            1710.5,
+            10.749999999999886
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "6036277ce5c7d38393b60644"
+            ]
+          }
+        },
+        "6036296fe5c7d38393b60650": {
+          "nodeID": "6036296fe5c7d38393b60650",
+          "type": "code",
+          "data": {
+            "code": "var artist_id\r\nartist_name = artist_name.toLowerCase()\r\n\r\nfor(var i=0; i<top_10_artists.length; i++) {\r\n  if(top_10_artists[i].name.toLowerCase() == artist_name) {\r\n    artist_id = top_10_artists[i].id\r\n    break\r\n  }\r\n  \r\n}",
+            "ports": [
+              {
+                "type": "",
+                "target": "6036277ce5c7d38393b60648",
+                "id": "6036296fe5c7d38393b60652"
+              },
+              {
+                "type": "fail",
+                "target": null,
+                "id": "6036296fe5c7d38393b60653"
+              }
+            ]
+          }
+        },
+        "6036296fe5c7d38393b60654": {
+          "nodeID": "6036296fe5c7d38393b60654",
+          "type": "block",
+          "coords": [
+            1984.25,
+            -226.7500000000001
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "6036296fe5c7d38393b60650"
+            ]
+          }
+        },
+        "60362b7ce5c7d38393b6065e": {
+          "nodeID": "60362b7ce5c7d38393b6065e",
+          "type": "code",
+          "data": {
+            "code": "var tracks = [];\r\n\r\nfor(var i=0; i<track_list.length; i++) {\r\n  tracks[i] = {\r\n\tname: track_list[i].name,\r\n\tpreviewURL: track_list[i].previewURL\r\n  }\r\n}\r\n\r\nvar track_names = [];\r\n\r\nfor(var i=0; i<tracks.length; i++) {\r\n  track_names.push(tracks[i].name)\r\n}",
+            "ports": [
+              {
+                "type": "",
+                "target": "60362db5e5c7d38393b6066b",
+                "id": "60362b7ce5c7d38393b60660"
+              },
+              {
+                "type": "fail",
+                "target": null,
+                "id": "60362b7ce5c7d38393b60661"
+              }
+            ]
+          }
+        },
+        "60362b7ce5c7d38393b60662": {
+          "nodeID": "60362b7ce5c7d38393b60662",
+          "type": "block",
+          "coords": [
+            1698,
+            291.9999999999999
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "60362b7ce5c7d38393b6065e"
+            ]
+          }
+        },
+        "60362db5e5c7d38393b6066b": {
+          "nodeID": "60362db5e5c7d38393b6066b",
+          "type": "speak",
+          "data": {
+            "randomize": false,
+            "dialogs": [
+              {
+                "voice": "default",
+                "content": "Here's the list of tracks for {{[artist_name].artist_name}}:                             {{[track_names].track_names}} .                                                 <break time=\"1s\" />Which track do you need preview of?"
+              }
+            ],
+            "ports": [
+              {
+                "type": "",
+                "target": "60362f24e5c7d38393b6067a",
+                "id": "60362db5e5c7d38393b6066d"
+              }
+            ]
+          }
+        },
+        "60362db5e5c7d38393b6066e": {
+          "nodeID": "60362db5e5c7d38393b6066e",
+          "type": "block",
+          "coords": [
+            1129.25,
+            160.7499999999999
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "60362db5e5c7d38393b6066b"
+            ]
+          }
+        },
+        "60362f24e5c7d38393b60677": {
+          "nodeID": "60362f24e5c7d38393b60677",
+          "type": "capture",
+          "data": {
+            "slot": "Custom",
+            "variable": "track_name",
+            "reprompt": null,
+            "slotInputs": [],
+            "chips": null,
+            "ports": [
+              {
+                "type": "",
+                "target": "60362f65e5c7d38393b60681",
+                "id": "60362f24e5c7d38393b60679"
+              }
+            ]
+          }
+        },
+        "60362f24e5c7d38393b6067a": {
+          "nodeID": "60362f24e5c7d38393b6067a",
+          "type": "block",
+          "coords": [
+            1176.75,
+            474.4999999999999
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "60362f24e5c7d38393b60677"
+            ]
+          }
+        },
+        "60362f65e5c7d38393b60681": {
+          "nodeID": "60362f65e5c7d38393b60681",
+          "type": "code",
+          "data": {
+            "code": "var previewURL\r\ntrack_name = track_name.toLowerCase()\r\n\r\nfor(i=0; i<tracks.length; i++) {\r\n  \r\n  name = tracks[i].name.toLowerCase()\r\n  if(name == track_name) {\r\n    previewURL = tracks[i].previewURL\r\n    break\r\n  }\r\n}",
+            "ports": [
+              {
+                "type": "",
+                "target": "60362ffce5c7d38393b60692",
+                "id": "60362f65e5c7d38393b60683"
+              },
+              {
+                "type": "fail",
+                "target": null,
+                "id": "60362f65e5c7d38393b60684"
+              }
+            ]
+          }
+        },
+        "60362f65e5c7d38393b60685": {
+          "nodeID": "60362f65e5c7d38393b60685",
+          "type": "block",
+          "coords": [
+            656.7499999999999,
+            175.7499999999999
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "60362f65e5c7d38393b60681"
+            ]
+          }
+        },
+        "60362ffce5c7d38393b6068f": {
+          "nodeID": "60362ffce5c7d38393b6068f",
+          "type": "speak",
+          "data": {
+            "randomize": false,
+            "dialogs": [
+              {
+                "voice": "default",
+                "content": "Here's the preview of the song."
+              }
+            ],
+            "ports": [
+              {
+                "type": "",
+                "target": "6036301ae5c7d38393b6069f",
+                "id": "60362ffce5c7d38393b60691"
+              }
+            ]
+          }
+        },
+        "60362ffce5c7d38393b60692": {
+          "nodeID": "60362ffce5c7d38393b60692",
+          "type": "block",
+          "coords": [
+            521.8461538461538,
+            451.423076923077
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "60362ffce5c7d38393b6068f"
+            ]
+          }
+        },
+        "6036301ae5c7d38393b6069a": {
+          "nodeID": "6036301ae5c7d38393b6069a",
+          "type": "stream",
+          "data": {
+            "loop": false,
+            "audio": "{{[previewURL].previewURL}}",
+            "title": "",
+            "description": "",
+            "ports": [
+              {
+                "type": "next",
+                "target": null,
+                "id": "6036301ae5c7d38393b6069c"
+              }
+            ]
+          }
+        },
+        "6036301ae5c7d38393b6069f": {
+          "nodeID": "6036301ae5c7d38393b6069f",
+          "type": "block",
+          "coords": [
+            809.7788461538456,
+            635.173076923077
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "6036301ae5c7d38393b6069a"
+            ]
+          }
+        },
+        "603633a9e5c7d38393b606a7": {
+          "nodeID": "603633a9e5c7d38393b606a7",
+          "type": "speak",
+          "data": {
+            "randomize": false,
+            "dialogs": [
+              {
+                "voice": "default",
+                "content": "Which artist you want to listen tracks of?"
+              }
+            ],
+            "ports": [
+              {
+                "type": "",
+                "target": "603622dce5c7d38393b60621",
+                "id": "603633a9e5c7d38393b606a9"
+              }
+            ]
+          }
+        },
+        "603633a9e5c7d38393b606aa": {
+          "nodeID": "603633a9e5c7d38393b606aa",
+          "type": "block",
+          "coords": [
+            1286.3173076923088,
+            -71.07692307692315
+          ],
+          "data": {
+            "name": "Block",
+            "color": "standard",
+            "steps": [
+              "603633a9e5c7d38393b606a7"
+            ]
+          }
+        }
+      },
+      "variables": [],
+      "children": [],
+      "name": "ROOT",
+      "versionID": "60352292b9b4bb0007342989",
+      "creatorID": 56821,
+      "modified": 1618984982
+    }
+  }
+}
